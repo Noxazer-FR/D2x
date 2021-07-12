@@ -1,7 +1,5 @@
-<img src="./media/fulllogo.jpg?raw=true" alt="dactyl" width="243" height="161"/>
-
-[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/dactyl/mod.ts) ![LatestRelease](https://img.shields.io/github/v/tag/liamtan28/dactyl)
-![build](https://github.com/liamtan28/dactyl/workflows/build/badge.svg)
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/d2x/mod.ts) ![LatestRelease](https://img.shields.io/github/v/tag/Noxazer-FR/D2x)
+![build](https://github.com/Noxazer-FR/D2x/workflows/build/badge.svg)
 ### Web framework for Deno, built on top of Oak
 
 ## Currently in the works
@@ -14,14 +12,14 @@
 
 Currently, through `mod.ts`, you have access to (docs link on left):
 
-1. [Controller.ts](https://doc.deno.land/https/deno.land/x/dactyl/Controller.ts) - function decorator responsible for assigning controller metadata
-2. [Application.ts](https://doc.deno.land/https/deno.land/x/dactyl/Application.ts) - application class able to register controllers, and start the webserver
-3. [HttpException](https://doc.deno.land/https/deno.land/x/dactyl/HttpException.ts) - throwable exception inside controller actions, `Application` will then handle said errors at top level and send the appropriate HTTP status code and message. There is also a list of included predefined `HttpException` classes, see below
-4. [HttpStatus.ts](https://doc.deno.land/https/deno.land/x/dactyl/HttpStatus.ts) - function decorator responsible for assigning default status codes for controller actions
-5. [Method.ts](https://doc.deno.land/https/deno.land/x/dactyl/Method.ts) - `@Get, @Post, @Put, @Patch, @Delete` function decorators responsible for defining routes on controller actions
-6. [Before.ts](https://doc.deno.land/https/deno.land/x/dactyl/Before.ts) - `@Before` method decorator responsible for defining actions to execute before controller action does. Has access to arguments as follows: `@Before((body, params, query, headers, context) => console.log('do something!')`
+1. [Controller.ts](https://doc.deno.land/https/deno.land/x/D2x/Controller.ts) - function decorator responsible for assigning controller metadata
+2. [Application.ts](https://doc.deno.land/https/deno.land/x/D2x/Application.ts) - application class able to register controllers, and start the webserver
+3. [HttpException](https://doc.deno.land/https/deno.land/x/D2x/HttpException.ts) - throwable exception inside controller actions, `Application` will then handle said errors at top level and send the appropriate HTTP status code and message. There is also a list of included predefined `HttpException` classes, see below
+4. [HttpStatus.ts](https://doc.deno.land/https/deno.land/x/D2x/HttpStatus.ts) - function decorator responsible for assigning default status codes for controller actions
+5. [Method.ts](https://doc.deno.land/https/deno.land/x/D2x/Method.ts) - `@Get, @Post, @Put, @Patch, @Delete` function decorators responsible for defining routes on controller actions
+6. [Before.ts](https://doc.deno.land/https/deno.land/x/D2x/Before.ts) - `@Before` method decorator responsible for defining actions to execute before controller action does. Has access to arguments as follows: `@Before((body, params, query, headers, context) => console.log('do something!')`
 
-_For following - [Arg.ts](https://doc.deno.land/https/deno.land/x/dactyl/Arg.ts)_
+_For following - [Arg.ts](https://doc.deno.land/https/deno.land/x/D2x/Arg.ts)
 
 6. `@Param` decorator maps `context.params` onto argument in controller action (returns whole `params` object if no key specified)
 7. `@Body` decorator maps `context.request` async body onto argument in controller action (returns whole `body` object if no key specified)
@@ -32,10 +30,10 @@ _For following - [Arg.ts](https://doc.deno.land/https/deno.land/x/dactyl/Arg.ts)
 12. `@Response` - return whole Oak `Response` object
 13. `@Inject` - inject a dependency directly from DIContainer. specify key `@Inject("DinosaurService")`
 
-14. [Router.ts](https://doc.deno.land/https/deno.land/x/dactyl/Router.ts) - It is recommended that you use the `Application` to bootstrap, but you can use the `Router`
+14. [Router.ts](https://doc.deno.land/https/deno.land/x/D2x/Router.ts) - It is recommended that you use the `Application` to bootstrap, but you can use the `Router`
     class directly. This is a superclass of Oak's router, and exposes additional methods for mapping `Controller` definitions onto routes.
 
-15. [Injectable.ts](https://doc.deno.land/https/deno.land/x/dactyl/injectable.ts) - tag a service as injectable. Supply a scope, e.g. `@Injectable(EInjectionScope.SINGLETON)`
+15. [Injectable.ts](https://doc.deno.land/https/deno.land/x/D2x/injectable.ts) - tag a service as injectable. Supply a scope, e.g. `@Injectable(EInjectionScope.SINGLETON)`
 
 ## Purpose
 
@@ -45,7 +43,7 @@ Deno is the new kid on the block, and Oak seems to be paving the way for an expr
 
 This repo contains an example project with one controller. You can execute this on your machine easily with Deno:
 
-`deno run --allow-net --config=tsconfig.json https://deno.land/x/dactyl/example/index.ts`
+`deno run --allow-net --config=tsconfig.json https://deno.land/x/D2x/example/index.ts`
 
 One caveat is to ensure you have a `tsconfig.json` file enabling `Reflect` and function decorators for this project, as Deno does not support this in it's default config. Ensure a `tsconfig.json` exists in your directory with at minimum:
 
@@ -61,14 +59,12 @@ One caveat is to ensure you have a `tsconfig.json` file enabling `Reflect` and f
 This should result in the following output:
 
 ```
-______           _         _
-|  _  \         | |       | |
-| | | |__ _  ___| |_ _   _| |
-| | | / _` |/ __| __| | | | |
-| |/ / (_| | (__| |_| |_| | |
-|___/ \__,_|\___|\__|\__, |_| FRAMEWORK
-                      __/ |
-                      |___/
+______ ______ 
+|  _  \\  _   \ 
+| | | | __ \__  \_____
+| | | //  _\__    __/ 
+| |/ //  /_ ___/  \__ 
+|___/ \___ /_ __/\__ _\
 
 /dinosaur
   [GET] /
